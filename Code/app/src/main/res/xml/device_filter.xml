@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- USB Video Class (UVC) cameras -->
+    <usb-device class="239" subclass="2" protocol="1" />
+    
+    <!-- Alternative: Logitech Brio 100 specific (vendor-id="0x046d") -->
+    <!-- You can add specific vendor/product IDs if needed -->
+    <!-- <usb-device vendor-id="1133" product-id="XXXX" /> -->
+</resources>

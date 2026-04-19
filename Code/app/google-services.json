@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "373832574377",
+    "project_id": "postureanalyzer-b24a3",
+    "storage_bucket": "postureanalyzer-b24a3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373832574377:android:9219a84eb24497e9f350b8",
+        "android_client_info": {
+          "package_name": "com.esw.postureanalyzer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs4wxCUEYwMDhBLgpeASu1DSwWfIujkm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

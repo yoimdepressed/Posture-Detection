@@ -1,0 +1,115 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.esw.postureanalyzer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.esw.postureanalyzer"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+        
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+                arguments "-DANDROID_STL=c++_shared"
+            }
+        }
+    }
+    
+    externalNativeBuild {
+        cmake {
+            path file("src/main/cpp/CMakeLists.txt")
+            version "3.22.1"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    aaptOptions {
+        noCompress "tflite", "task" // Prevents compression of model files
+    }
+    
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/LICENSE', 'META-INF/NOTICE']
+        }
+    }
+    
+    buildFeatures {
+        viewBinding true
+    }
+    
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // CameraX
+    def camerax_version = "1.3.1"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+
+    // MediaPipe Tasks Vision
+    implementation 'com.google.mediapipe:tasks-vision:0.10.9'
+
+    // TensorFlow Lite Core (compatible version with MediaPipe)
+    implementation 'org.tensorflow:tensorflow-lite:2.13.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+    
+    // GPU Delegate (REQUIRED for GPU acceleration)
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.13.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu-api:2.13.0'
+    
+    // NNAPI Delegate support (built-in for NPU/DSP acceleration)
+    implementation 'org.tensorflow:tensorflow-lite-select-tf-ops:2.13.0'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:34.3.0')
+    implementation 'com.google.firebase:firebase-database'
+
+    // Glide for image loading (including GIFs)
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+    
+    // PDF Generation
+    implementation 'com.itextpdf:itext7-core:7.2.5'
+
+    // Email sending
+    implementation 'com.sun.mail:android-mail:1.6.7'
+    implementation 'com.sun.mail:android-activation:1.6.7'
+
+    // WorkManager for scheduling
+    implementation 'androidx.work:work-runtime:2.9.0'
+    
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

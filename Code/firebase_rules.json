@@ -1,0 +1,59 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    
+    "performance_data": {
+      ".read": true,
+      ".write": true,
+      "$processor": {
+        ".read": true,
+        ".write": true,
+        "$device": {
+          ".read": true,
+          ".write": true,
+          "$timestamp": {
+            ".read": true,
+            ".write": true
+          }
+        }
+      }
+    },
+    
+    "posture_logs": {
+      ".read": true,
+      ".write": true,
+      "$logId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    
+    "detailed_stats": {
+      ".read": true,
+      ".write": true,
+      "$statsId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    
+    "device_performance_data": {
+      ".read": true,
+      ".write": true,
+      "$deviceId": {
+        ".read": true,
+        ".write": true,
+        "$recordId": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+    
+    "_connection_test": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}

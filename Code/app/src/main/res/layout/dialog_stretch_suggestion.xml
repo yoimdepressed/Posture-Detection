@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/stretch_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🧘 Try a Chest Opener Stretch"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/stretch_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerInside"
+        android:contentDescription="Chest opener stretch animation"
+        android:paddingBottom="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="300dp">
+
+        <TextView
+            android:id="@+id/stretch_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingBottom="16dp" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/watch_video_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Watch Video"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF5722"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/dismiss_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Got It"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
